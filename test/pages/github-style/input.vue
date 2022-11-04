@@ -1,20 +1,20 @@
 <template>
-  <github-search-input
+  <metagraph-search-input
     @input="handleInputChange($event)"
     @search="handleSearch($event)"
     :search-type-list="typeList"
     :placeholder="'请输入搜索内容...'"
-    :historyList="filterHistoryList"></github-search-input>
+    :historyList="filterHistoryList"></metagraph-search-input>
 </template>
 
 <script lang="ts">
 import { v1 as uuidV1 } from 'uuid';
 import { defineComponent, onMounted, ref } from 'vue';
-import { GithubSearchInput } from "@/index";
+import { MetagraphSearchInput } from "@/index";
 
 export default defineComponent({
   name: "input-demo",
-  components: { GithubSearchInput },
+  components: { MetagraphSearchInput },
   setup() {
     const historyList: { label: string; value: string }[] = [
       { label: '持有至到期投资', value: '持有至到期投资' },

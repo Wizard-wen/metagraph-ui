@@ -32,6 +32,23 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Icon',
         component:  () => import('../pages/icons/icon.vue'),
       },
+      {
+        path: 'webComponent',
+        name: 'WebComponent',
+        component:  () => import('../pages/web-component/index.vue'),
+      },
+      {
+        path: 'business',
+        name: 'Business',
+        component:  () => import('../pages/business/index.vue'),
+        children: [
+          {
+            path: 'card',
+            name: 'metagraphCard',
+            component: () => import('../pages/business/card.vue'),
+          },
+        ]
+      }
     ]
   }
 ]

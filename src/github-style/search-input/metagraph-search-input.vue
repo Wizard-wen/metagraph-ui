@@ -12,6 +12,7 @@
           v-model="searchText"
           id="search"
           type="text"
+          autocomplete="off"
           :placeholder="placeholder"
           class="normal-search-input"
           @blur="handleInputBlur($event)"

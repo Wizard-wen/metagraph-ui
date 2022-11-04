@@ -7,7 +7,7 @@
   </metagraph-button>
   <metagraph-tag :title="'ssss'" :color="'#41b883'"></metagraph-tag>
   <metagraph-tag :title="'知识库'"></metagraph-tag>
-  <div class="test">测试css</div>
+
   <meta-word-count>sssss</meta-word-count>
 
   <form>
@@ -25,13 +25,7 @@
     @datechange="handleChange($event)"
     time-zone="America/New_York">The time is
   </meta-current-time>
-  <metagraph-card
-    :title="'新的灵感'"
-    :description="'新的灵感来源于一次尝试'">
-    <template #tag>
-      <ant-tag>会计</ant-tag>
-    </template>
-  </metagraph-card>
+
 </template>
 
 <script lang="ts">

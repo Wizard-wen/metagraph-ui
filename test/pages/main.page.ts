@@ -13,18 +13,35 @@ export const routerList = [
       {
         name: '按钮',
         router: '/github-style/button',
-        key: 2
+        key: 11
       },
       {
         name: '输入框',
         router: '/github-style/input',
-        key: 4
+        key: 12
       }
     ]
   },
   {
     name: '图标',
     router: '/icon',
+    key: 2
+  },
+  {
+    name: 'web原生组件',
+    router: '/webComponent',
     key: 3
+  },
+  {
+    name: '业务组件',
+    router: '/business',
+    key: 4,
+    children: [
+      {
+        name: '卡片',
+        router: '/business/card',
+        key: 41
+      }
+    ]
   },
 ]

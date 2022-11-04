@@ -30,6 +30,5 @@ function handle() {
 
 setInterval(() => {
   currentDateTime.value = new Date();
-
 }, 1000);
 </script>

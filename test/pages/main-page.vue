@@ -25,7 +25,7 @@
               </ant-sub-menu>
             </template>
             <template v-else>
-              <ant-menu-item :key="index">
+              <ant-menu-item :key="item.key">
                 <router-link :to="item.router">{{ item.name }}</router-link>
               </ant-menu-item>
             </template>
@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import {computed, defineComponent, ref} from 'vue';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import {
   Layout, Menu
@@ -65,6 +65,7 @@ export default defineComponent({
     AntMenuItem: Menu.Item
   },
   setup() {
+
     return {
       selectedKeys1: ref<string[]>(['2']),
       selectedKeys2: ref<string[]>(['1']),
