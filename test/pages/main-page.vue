@@ -7,26 +7,23 @@
       <ant-layout-sider width="200" style="background: #fff">
         <ant-menu
           mode="inline"
-          v-model:selectedKeys="selectedKeys2"
-          v-model:openKeys="openKeys"
           :style="{ height: '100%', borderRight: 0 }">
-          <template v-for="(item, index) in routerList">
+          <template v-for="(item, index) in currentRouterList">
             <template v-if="item.children">
-              <ant-sub-menu>
+              <ant-sub-menu :key="item.key">
                 <template #title>
-                  <span>
-                    {{ item.name }}
-                  </span>
+                  <span>{{ item.title }}</span>
                 </template>
                 <ant-menu-item
-                  v-for="(childItem, childIndex) in item.children" :key="childIndex + '-' + index">
-                <router-link :to="childItem.router">{{ childItem.name }}</router-link>
+                  v-for="(childItem) in item.children"
+                  :key="childItem.key">
+                  <router-link :to="childItem.path">{{ childItem.title }}</router-link>
                 </ant-menu-item>
               </ant-sub-menu>
             </template>
             <template v-else>
-              <ant-menu-item :key="item.key">
-                <router-link :to="item.router">{{ item.name }}</router-link>
+              <ant-menu-item :key="item.key" >
+                <router-link :to="item.path">{{ item.title }}</router-link>
               </ant-menu-item>
             </template>
           </template>
@@ -48,7 +45,7 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 import {
   Layout, Menu
 } from 'ant-design-vue';
-import { routerList } from './main.page';
+import {generateRouter, routerList, RouteType} from './main.page';
 
 export default defineComponent({
   name: 'Main',
@@ -65,13 +62,14 @@ export default defineComponent({
     AntMenuItem: Menu.Item
   },
   setup() {
-
+const currentRouterList = ref<RouteType[]>(generateRouter(routerList))
     return {
       selectedKeys1: ref<string[]>(['2']),
       selectedKeys2: ref<string[]>(['1']),
       collapsed: ref<boolean>(false),
       openKeys: ref<string[]>(['sub1']),
-      routerList
+      routerList,
+      currentRouterList
     };
   },
 })

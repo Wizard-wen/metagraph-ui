@@ -22,14 +22,13 @@ export default defineComponent({
     LoadingOutlined
   },
   setup(props, { slots }) {
-
     const isLoading = toRef(props, 'isLoading');
     const disabled = toRef(props, 'disabled');
     const isDisabled = computed(() => disabled.value || isLoading.value);
     return () => <button
       disabled={isDisabled.value}
       class="meta-normal-button">
-      {isLoading.value ? <LoadingOutlined/>
+      {isLoading.value ? <LoadingOutlined class="loading-style"/>
         : renderSlot(slots, 'icon')}
       {props.title}
     </button>
@@ -96,5 +95,8 @@ export default defineComponent({
   &::-webkit-details-marker {
     display: none;
   }
+}
+.loading-style {
+    margin-right: 4px;
 }
 </style>

@@ -5,6 +5,8 @@
       <StarOutlined v-else/>
     </template>
   </metagraph-button>
+
+    <metagraph-button :title="'点击'"></metagraph-button>
   <metagraph-tag :title="'ssss'" :color="'#41b883'"></metagraph-tag>
   <metagraph-tag :title="'知识库'"></metagraph-tag>
 
@@ -33,10 +35,11 @@ import { defineComponent, ref } from 'vue';
 import { Tag } from 'ant-design-vue';
 import { StarOutlined, StarFilled } from '@ant-design/icons-vue';
 import { MetagraphButton, MetagraphCard, MetagraphTag } from "@/index";
+import MetagraphTree from "../../../src/general/metagraph-tree/metagraph-tree.vue";
 
 export default defineComponent({
   name: "button-demo",
-  components: { MetagraphTag, MetagraphCard, MetagraphButton, AntTag: Tag, StarOutlined, StarFilled },
+  components: {MetagraphTree, MetagraphTag, MetagraphCard, MetagraphButton, AntTag: Tag, StarOutlined, StarFilled },
   setup() {
     const jsCode = 'const a = 1;'
     const text = '1Your card validation code (CVC) is an extra security feature — it is the last 3 or 4 numbers on the back of your card.'

@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     component:  () => import('../pages/main-page.vue'),
     children: [
       {
-        path: 'github-style',
+        path: 'githubStyle',
         name: 'Github',
         component:  () => import('../pages/github-style/index.vue'),
         children: [
@@ -46,6 +46,18 @@ const routes: Array<RouteRecordRaw> = [
             path: 'card',
             name: 'metagraphCard',
             component: () => import('../pages/business/card.vue'),
+          }
+        ]
+      },
+      {
+        path: 'general',
+        name: 'General',
+        component:  () => import('../pages/general/index.vue'),
+        children: [
+          {
+            path: 'tree',
+            name: 'metagraphTree',
+            component: () => import('../pages/general/tree.vue'),
           },
         ]
       }
